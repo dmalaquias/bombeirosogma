@@ -86,7 +86,7 @@
   <div class="container">
     <img src="Acciona-logo-novo.png" alt="Logotipo">
     <h2>Checklist de EPI</h2>
-    <p>Insere o teu <strong>número mecanográfico</strong> para aceder ao formulário correspondente:</p>
+    <p>Insere o teu <strong>número mecanográfico</strong> para aceder ao checklist de EPI:</p>
     <input type="password" id="password" placeholder="Número mecanográfico">
     <br>
     <button id="submit">Entrar</button>
@@ -94,7 +94,7 @@
 
   <div id="errorModal" class="modal">
     <div class="modal-content">
-      <p>Número mecanográfico incorreto. Tenta novamente.</p>
+      <p>Número mecanográfico incorrecto. Tenta novamente.</p>
       <button class="close-btn" onclick="document.getElementById('errorModal').style.display='none'">Fechar</button>
     </div>
   </div>
@@ -103,15 +103,13 @@
     function run() {
       let pw = document.getElementById("password").value.trim();
       
-      // Parte ofuscada com os links e passwords
-      var _0x2431=["\x35\x30\x30\x34\x33\x34\x32\x32","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x66\x6F\x72\x6D\x73\x2E\x6F\x66\x66\x69\x63\x65\x2E\x63\x6F\x6D\x2F\x65\x2F\x4D\x7A\x54\x39\x31\x35\x37\x38\x43\x32", "\x35\x31\x32\x32\x35\x37","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x66\x6F\x72\x6D\x73\x2E\x6F\x66\x66\x69\x63\x65\x2E\x63\x6F\x6D\x2F\x65\x2F\x6A\x41\x64\x6A\x59\x41\x6A\x72\x4E\x75", /* continue para o resto dos dados ofuscados...*/
+      var _0x2431=["\x35\x30\x30\x34\x33\x34\x32\x32","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x66\x6F\x72\x6D\x73\x2E\x6F\x66\x66\x69\x63\x65\x2E\x63\x6F\x6D\x2F\x65\x2F\x4D\x7A\x54\x39\x31\x35\x37\x38\x43\x32", "\x35\x31\x32\x32\x35\x37","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x66\x6F\x72\x6D\x73\x2E\x6F\x66\x66\x69\x63\x65\x2E\x63\x6F\x6D\x2F\x65\x2F\x6A\x41\x64\x6A\x59\x41\x6A\x72\x4E\x75", 
       ];
       
       let map = {};
       map[_0x2431[0]] = _0x2431[1];
       map[_0x2431[2]] = _0x2431[3];
 
-      // Verificando se a password existe no mapeamento
       if (map[pw]) {
         window.location.href = map[pw];
       } else {
