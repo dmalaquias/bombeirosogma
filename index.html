@@ -84,7 +84,7 @@
 </head>
 <body>
   <div class="container">
-    <img src="Acciona-logo-novo.png" alt="Logotipo">
+    <img src="acciona-logo-novo.png" alt="Logotipo">
     <h2>Checklist de EPI</h2>
     <p>Insere o teu <strong>número mecanográfico</strong> <br /><br />para aceder ao formulário correspondente:</p>
     <input type="password" id="password" placeholder="Número mecanográfico">
@@ -100,36 +100,32 @@
   </div>
 
   <script>
-    function decodeBase64(str) {
-      return decodeURIComponent(escape(window.atob(str)));
-    }
+    const encodedMap = {
+      "50014433": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvSzRENk5yU3VRNA==",
+      "50076389": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvRFhxa0Ewek1NWA==",
+      "5122563": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvdVRxWUpKRTRLcA==",
+      "5122557": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvalFkallBanc=",
+      "5122562": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2Uvblc4NlVOTEJtWQ==",
+      "50043422": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvTXpUOTE1NzhDMg==",
+      "5111802": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvaVdKYmJOTXBjNA==",
+      "5100649": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvdkVMWFRXS2NXZA==",
+      "50077066": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2Uva3puZHJ0Q0RydA==",
+      "50080446": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvY3ZwNlcwckxraj==",
+      "50049545": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UveUhlQXVaMXMybQ==",
+      "50081615": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvQXNMNkNFbTBmQQ==",
+      "90205723": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvS25RRDVTMlNVUg==",
+      "9273": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvS0JmRWRxUWs5Vg==",
+      "50017687": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2Uvc1BBZlJ4aWszQw==",
+      "50074924": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvdXFOTW56elEzMQ==",
+      "50076163": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvTUF3Q2R1dldNUw==",
+      "50085624": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvZzlIdjFqVVNTSw=="
+    };
 
     function run() {
-      const pw = document.getElementById("password").value.trim();
-      const encodedMap = {
-        "50043422": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvTXpUOTE1NzhDMg==",
-        "5122557": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvalFkallBanc=",
-        "5122563": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvdVRxWUpKRTRLcA==",
-        "5122562": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2Uvblc4NlVOTEJtWQ==",
-        "5111802": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvaVdKYmJOTXBjNA==",
-        "5100649": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvdkVMWFRXS2NXZA==",
-        "50076389": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvRFhxa0Ewek1NWA==",
-        "50077066": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2Uva3puZHJ0Q0RydA==",
-        "50080446": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvY3ZwNlcwckxraj==",
-        "50049545": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UveUhlQXVaMXMybQ==",
-        "50081615": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvQXNMNkNFbTBmQQ==",
-        "90205723": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvS25RRDVTMlNVUg==",
-        "9273": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvS0JmRWRxUWs5Vg==",
-        "50014433": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvSzRENk5yU3VRNA==",
-        "50017687": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2Uvc1BBZlJ4aWszQw==",
-        "50074924": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvdXFOTW56elEzMQ==",
-        "50076163": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvTUF3Q2R1dldNUw==",
-        "50085624": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvZzlIdjFqVVNTSw=="
-      };
-
+      let pw = document.getElementById("password").value.trim();
       if (encodedMap[pw]) {
-        const url = decodeBase64(encodedMap[pw]);
-        window.location.href = url; // Redireciona na mesma aba
+        const decodedUrl = atob(encodedMap[pw]);
+        window.location.href = decodedUrl;
       } else {
         document.getElementById("errorModal").style.display = "block";
       }
