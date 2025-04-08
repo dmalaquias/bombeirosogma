@@ -84,7 +84,7 @@
 </head>
 <body>
   <div class="container">
-    <img src="acciona-logo-novo.png" alt="Logotipo">
+    <img src="Acciona-logo-novo.png" alt="Logotipo">
     <h2>Checklist de EPI</h2>
     <p>Insere o teu <strong>número mecanográfico</strong> <br /><br />para aceder ao formulário correspondente:</p>
     <input type="password" id="password" placeholder="Número mecanográfico">
@@ -100,20 +100,36 @@
   </div>
 
   <script>
+    function decodeBase64(str) {
+      return decodeURIComponent(escape(window.atob(str)));
+    }
+
     function run() {
-      let pw = document.getElementById("password").value.trim();
-      
-      // Parte ofuscada com os links e passwords
-      var _0x2431 = ["50043422", "https://forms.office.com/e/MzT91578C2", "5122557", "https://forms.office.com/e/jAdjYAjrNu", "5122563", "https://forms.office.com/e/uTqYJJE6Kp", "5122562", "https://forms.office.com/e/nW86UNLBmY", "5111802", "https://forms.office.com/e/iWJbbNMpc4", "5100649", "https://forms.office.com/e/vELXTWKcWd", "50076389", "https://forms.office.com/e/DXqKA0zNMY", "50077066", "https://forms.office.com/e/kzndrtCDrt", "50080446", "https://forms.office.com/e/cvp6W0rLkj", "50049545", "https://forms.office.com/e/yHeAuZ1s2m", "50081615", "https://forms.office.com/e/AsL6CEm0fA", "90205723", "https://forms.office.com/e/KnQD5S2SUR", "9273", "https://forms.office.com/e/KBfEdqQk9V", "50014433", "https://forms.office.com/e/K4D4NrSuQ4", "50017687", "https://forms.office.com/e/sPAfRxik3C", "50074924", "https://forms.office.com/e/uqNMnzzQ31", "50076163", "https://forms.office.com/e/MAwCduvWMS", "50085624", "https://forms.office.com/e/g9Hv1jUSSK"];
+      const pw = document.getElementById("password").value.trim();
+      const encodedMap = {
+        "50043422": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvTXpUOTE1NzhDMg==",
+        "5122557": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvalFkallBanc=",
+        "5122563": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvdVRxWUpKRTRLcA==",
+        "5122562": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2Uvblc4NlVOTEJtWA==",
+        "5111802": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvaVdKYmJOTXBjNA==",
+        "5100649": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvdkVMWFRXS2NXZA==",
+        "50076389": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvRFhxa0Ewek1NWA==",
+        "50077066": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2Uva3puZHJ0Q0RydA==",
+        "50080446": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvY3ZwNlcwckxraj==",
+        "50049545": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UveUhlQXVaMXMybQ==",
+        "50081615": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvQXNMNkNFbTBmQQ==",
+        "90205723": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvS25RRDVTMlNVUg==",
+        "9273": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvS0JmRWRxUWs5Vg==",
+        "50014433": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvSzRENk5yU3VRNA==",
+        "50017687": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2Uvc1BBZlJ4aWszQw==",
+        "50074924": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvdXFOTW56elEzMQ==",
+        "50076163": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvTUF3Q2R1dldNUw==",
+        "50085624": "aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL2UvZzlIdjFqVVNTSw=="
+      };
 
-      let map = {};
-      for (let i = 0; i < _0x2431.length; i += 2) {
-        map[_0x2431[i]] = _0x2431[i + 1];
-      }
-
-      // Verificando se a senha existe no mapeamento
-      if (map[pw]) {
-        window.location.href = map[pw];
+      if (encodedMap[pw]) {
+        const url = decodeBase64(encodedMap[pw]);
+        window.location.href = url; // Redireciona na mesma aba
       } else {
         document.getElementById("errorModal").style.display = "block";
       }
