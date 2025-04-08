@@ -84,9 +84,9 @@
 </head>
 <body>
   <div class="container">
-    <img src="Acciona-logo-novo.png" alt="Logotipo">
+    <img src="acciona-logo-novo.png" alt="Logotipo">
     <h2>Checklist de EPI</h2>
-    <p>Insere o teu <strong>número mecanográfico</strong> <br />para aceder ao checklist de EPI:</p>
+    <p>Insere o teu <strong>número mecanográfico</strong> <br /><br />para aceder ao formulário correspondente:</p>
     <input type="password" id="password" placeholder="Número mecanográfico">
     <br>
     <button id="submit">Entrar</button>
@@ -94,7 +94,7 @@
 
   <div id="errorModal" class="modal">
     <div class="modal-content">
-      <p>Número mecanográfico incorrecto. Tenta novamente.</p>
+      <p>Número mecanográfico incorreto. Tenta novamente.</p>
       <button class="close-btn" onclick="document.getElementById('errorModal').style.display='none'">Fechar</button>
     </div>
   </div>
@@ -103,13 +103,15 @@
     function run() {
       let pw = document.getElementById("password").value.trim();
       
-      var _0x2431=["\x35\x30\x30\x34\x33\x34\x32\x32","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x66\x6F\x72\x6D\x73\x2E\x6F\x66\x66\x69\x63\x65\x2E\x63\x6F\x6D\x2F\x65\x2F\x4D\x7A\x54\x39\x31\x35\x37\x38\x43\x32", "\x35\x31\x32\x32\x35\x37","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x66\x6F\x72\x6D\x73\x2E\x6F\x66\x66\x69\x63\x65\x2E\x63\x6F\x6D\x2F\x65\x2F\x6A\x41\x64\x6A\x59\x41\x6A\x72\x4E\x75", 
-      ];
-      
-      let map = {};
-      map[_0x2431[0]] = _0x2431[1];
-      map[_0x2431[2]] = _0x2431[3];
+      // Parte ofuscada com os links e passwords
+      var _0x2431 = ["50043422", "https://forms.office.com/e/MzT91578C2", "5122557", "https://forms.office.com/e/jAdjYAjrNu", "5122563", "https://forms.office.com/e/uTqYJJE6Kp", "5122562", "https://forms.office.com/e/nW86UNLBmY", "5111802", "https://forms.office.com/e/iWJbbNMpc4", "5100649", "https://forms.office.com/e/vELXTWKcWd", "50076389", "https://forms.office.com/e/DXqKA0zNMY", "50077066", "https://forms.office.com/e/kzndrtCDrt", "50080446", "https://forms.office.com/e/cvp6W0rLkj", "50049545", "https://forms.office.com/e/yHeAuZ1s2m", "50081615", "https://forms.office.com/e/AsL6CEm0fA", "90205723", "https://forms.office.com/e/KnQD5S2SUR", "9273", "https://forms.office.com/e/KBfEdqQk9V", "50014433", "https://forms.office.com/e/K4D4NrSuQ4", "50017687", "https://forms.office.com/e/sPAfRxik3C", "50074924", "https://forms.office.com/e/uqNMnzzQ31", "50076163", "https://forms.office.com/e/MAwCduvWMS", "50085624", "https://forms.office.com/e/g9Hv1jUSSK"];
 
+      let map = {};
+      for (let i = 0; i < _0x2431.length; i += 2) {
+        map[_0x2431[i]] = _0x2431[i + 1];
+      }
+
+      // Verificando se a senha existe no mapeamento
       if (map[pw]) {
         window.location.href = map[pw];
       } else {
