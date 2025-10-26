@@ -80,6 +80,31 @@
       border-radius: 6px;
       cursor: pointer;
     }
+    .password-container {
+     position: relative;
+     display: inline-block;
+     width: 80%;
+     }
+     input[type="password"], input[type="text"] {
+     width: 100%;
+     padding: 10px 40px 10px 10px;
+     margin: 10px 0;
+     border: 1px solid #ccc;
+     border-radius: 8px;
+     font-size: 16px;
+     box-sizing: border-box;
+     }
+    .toggle-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #555;
+    }
   </style>
 </head>
 <body>
@@ -87,7 +112,10 @@
     <img src="Acciona-logo-novo.png" alt="Logotipo">
     <h2>Checklist de EPI</h2>
     <p>Insere o teu <strong>número mecanográfico</strong> <br /><br />para aceder ao formulário correspondente:</p>
+    <div class="password-container">
     <input type="password" id="password" placeholder="Número mecanográfico">
+    <button class="toggle-btn" type="button" onclick="togglePassword()">👁️</button>
+    </div>
     <br>
     <button id="submit">Entrar</button>
   </div>
@@ -100,6 +128,10 @@
   </div>
 
   <script>
+    function togglePassword() {
+    const input = document.getElementById("password");
+    input.type = input.type === "password" ? "text" : "password";
+    }
     function decode(chars) {
       return chars.map(c => String.fromCharCode(c)).join('');
     }
@@ -146,4 +178,5 @@
   </script>
 </body>
 </html>
+
 
