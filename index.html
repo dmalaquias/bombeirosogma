@@ -130,7 +130,15 @@
   <script>
     function togglePassword() {
     const input = document.getElementById("password");
-    input.type = input.type === "password" ? "text" : "password";
+    const btn = document.querySelector(".toggle-btn");
+
+    if (input.type === "password") {
+    input.type = "text";
+    btn.textContent = "🚫";
+    } else {
+    input.type = "password";
+    btn.textContent = "👁️"; 
+    }
     }
     function decode(chars) {
       return chars.map(c => String.fromCharCode(c)).join('');
@@ -178,5 +186,6 @@
   </script>
 </body>
 </html>
+
 
 
